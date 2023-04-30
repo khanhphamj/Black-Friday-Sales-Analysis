@@ -1,7 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
-from components import  card
 
 card_home_banner = [
     dbc.CardBody([

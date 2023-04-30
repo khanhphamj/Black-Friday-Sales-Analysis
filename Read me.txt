@@ -1,15 +1,13 @@
+Software needs to be installed
 1. Install Python
 2. Install Pycharm
-3. Install libs needs (open terminal to install):
+-----------------------------------------------------------
+3. Install libs needs (open terminal in pycharm to install):
 
-pip install dash
-pip instal dash-bootstrap-components
-pip install ipywidgets
-pip install folium
-pip install plotly
-pip install jupyter-dash
-pip install fontawesome
-pip install pandas numpy matplotlib
+pip install dash dash-bootstrap-components ipywidgets
+pip install folium plotly jupyter-dash fontawesome
+pip install pandas numpy matplotlib seaborn squarify sklearn
+-----------------------------------------------------------
 
 import folium
 from folium.plugins import HeatMap
