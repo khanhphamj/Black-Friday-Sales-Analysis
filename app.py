@@ -8,10 +8,11 @@ app = dash.Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP],
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
-app.title="Black Friday Sales - ABC Private Ltd"
+app.title = "Black Friday Sales - ABC Private Ltd"
 
 content = html.Div(id="page-content")
 app.layout = html.Div([dcc.Location(id="url"), leftsidebar.sidebar, content])
+
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
     if pathname == "/":

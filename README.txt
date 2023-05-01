@@ -8,6 +8,7 @@ pip install dash dash-bootstrap-components ipywidgets
 pip install folium plotly jupyter-dash fontawesome
 pip install pandas numpy matplotlib seaborn squarify sklearn
 -----------------------------------------------------------
+4. Run project without doing anything
 
 import folium
 from folium.plugins import HeatMap
