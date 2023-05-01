@@ -1,7 +1,7 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
-from codes import loader
+from codes import loader, barchart
 
 card_home_banner = [
     dbc.CardBody([
