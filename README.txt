@@ -6,7 +6,7 @@ Software needs to be installed
 
 pip install dash dash-bootstrap-components ipywidgets
 pip install folium plotly jupyter-dash fontawesome
-pip install pandas numpy matplotlib seaborn squarify sklearn
+pip install pandas numpy matplotlib seaborn squarify sklearn scikit-learn
 -----------------------------------------------------------
 4. Run project without doing anything
 
