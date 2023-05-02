@@ -2,6 +2,7 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html, callback
 from codes import loader, home_chart_modal
+from PIL import Image
 
 card_home_banner = [
     dbc.CardBody([
@@ -49,7 +50,7 @@ card_home_tiLeGioiTinhtheoTuoi = [
                         className="card-text")),
     html.Div([
         html.Div([
-            dbc.CardImg(src="https://web888.vn/wp-content/uploads/2021/10/luu-ban-nhap-tu-dong-1634789228253.jpg",
+            dbc.CardImg(src=Image.open("imgs/home-modal.png"),
                         bottom=True,
                         className="card-image")
         ]),

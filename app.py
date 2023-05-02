@@ -3,6 +3,7 @@ import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
 from pages import home, customer, product, revenue
 from components import leftsidebar
+
 # https://fontawesome.com/v4/ link v4
 app = dash.Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP,
@@ -13,6 +14,7 @@ app.title = "Black Friday Sales - ABC Private Ltd"
 
 content = html.Div(id="page-content", className='mt-0 mb-0')
 app.layout = html.Div([dcc.Location(id="url"), leftsidebar.sidebar, content])
+
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):

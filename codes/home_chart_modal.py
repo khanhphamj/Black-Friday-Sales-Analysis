@@ -18,12 +18,14 @@ home_modal = html.Div([
                color="light", className="me-1",
                id="home-open-xl", n_clicks=0),
     dbc.Modal([
-        dbc.ModalHeader(dbc.ModalTitle("Header")),
+        dbc.ModalHeader(
+            dbc.ModalTitle("Biểu đồ thống kê tỉ lệ giới tính và thống kê giới tính theo nhóm tuổi của khách hàng"),
+            className="text-center"),
         dbc.ModalBody([
             html.Iframe(
                 id='home-modal-plot',
                 srcDoc=None,  # here is where we will put the graph we make
-                style={"height": "1067px", "width": "100%"}),
+                style={"height": "600px", "width": "100%"}),
         ]),
     ],
         id="home-modal-xl",
@@ -51,8 +53,9 @@ def toggle_modal(n1, is_open):
     Input("home-open-xl", "n_clicks"),
 )
 def home_barchart(input_val):
+
     # Tỉ lệ giới tính và thống kê giới tính theo nhóm tuổi của khách hàng
-    fig = plt.figure(figsize=(12, 8))
+    fig = plt.figure(figsize=(10, 6))
     gs = GridSpec(1, 3, figure=fig, width_ratios=[6.3, 2.2, 2.2])
 
     # ax1 plot
@@ -90,9 +93,15 @@ def home_barchart(input_val):
                                        wedgeprops={'edgecolor': 'black', 'linewidth': 1})
     centre_circle = plt.Circle((0, 0), 0.68, color='black', fc='white', linewidth=1.25)
     fig.gca().add_artist(centre_circle)
-    revenue_text = 'Doanh thu trung bình:\nNam INR{:,.0f}\nNữ: INR{:,.0f}'.format(
-        purchase_by_gender['Male'] / df['User_ID'].nunique(), purchase_by_gender['Female'] / df['User_ID'].nunique())
-    plt.text(0, 0, s=revenue_text, ha='center', va='center', fontsize=9.5)
+
+    revenue_text = 'Doanh thu trung bình:'
+    revenue_text1 = 'Nam INR{:,.0f}'.format(purchase_by_gender['Male'] / df['User_ID'].nunique())
+    revenue_text2 = 'Nữ INR{:,.0f}'.format(purchase_by_gender['Female'] / df['User_ID'].nunique())
+
+    plt.text(0, 0.3, s=revenue_text, ha='center', va='center', fontsize=9.5)
+    plt.text(0, 0.15, s=revenue_text1, ha='center', va='center', fontsize=9.5)
+    plt.text(0, 0, s=revenue_text2, ha='center', va='center', fontsize=9.5)
+
     ax3.set_title('Tỉ lệ doanh thu theo giới tính khách hàng', fontweight='bold')
 
     # plt.show()
