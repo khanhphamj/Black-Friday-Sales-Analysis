@@ -50,7 +50,7 @@ card_home_tiLeGioiTinhtheoTuoi = [
                         className="card-text")),
     html.Div([
         html.Div([
-            dbc.CardImg(src=Image.open("imgs/home-modal.png"),
+            dbc.CardImg(src=Image.open("imgs/home-modal1.png"),
                         bottom=True,
                         className="card-image")
         ]),
