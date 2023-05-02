@@ -1,34 +1,58 @@
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib.gridspec import GridSpec
-import plotly.express as px
-import datetime as dt
-from math import sqrt, pow
-import numpy as np
-import pandas as pd
-from pandas.api.types import CategoricalDtype
-from tabulate import tabulate
-from colorama import Fore, Style
-import seaborn as sns
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 import dash
 import dash_bootstrap_components as dbc
-from dash import Dash, Input, Output, State, dcc, html
+from dash import Dash, Input, Output, State, dcc, html, callback
+from codes import loader
+import pandas as pd
+from matplotlib.gridspec import GridSpec
 
-import warnings
-
-warnings.filterwarnings('ignore', category=FutureWarning)
+import matplotlib.pyplot as plt  # pip install matplotlib
+import mpld3  # pip install mpld3
 
 df = pd.read_csv('data/black-friday-sales-eda.csv')
+
 df['Gender'] = df['Gender'].replace(['F', 'M'], ['Female', 'Male'])
 df['Marital_Status'] = df['Marital_Status'].replace([0, 1], ['Single', 'Married'])
 
+home_modal = html.Div([
+    dbc.Button(html.I(className="fa fa-search-plus fa-2x"),
+               color="light", className="me-1",
+               id="home-open-xl", n_clicks=0),
+    dbc.Modal([
+        dbc.ModalHeader(dbc.ModalTitle("Header")),
+        dbc.ModalBody([
+            html.Iframe(
+                id='home-modal-plot',
+                srcDoc=None,  # here is where we will put the graph we make
+                style={"height": "1067px", "width": "100%"}),
+        ]),
+    ],
+        id="home-modal-xl",
+        size="xl",
+        is_open=False,
+    ),
+])
 
-def home_barchart():
+
+# callback function always after @callback
+# id ko dc trùng nhau cho tất cả component
+@callback(
+    Output("home-modal-xl", "is_open"),
+    Input("home-open-xl", "n_clicks"),
+    State("home-modal-xl", "is_open"),
+)
+def toggle_modal(n1, is_open):
+    if n1:
+        return not is_open
+    return is_open
+
+
+@callback(
+    Output('home-modal-plot', 'srcDoc'),
+    Input("home-open-xl", "n_clicks"),
+)
+def home_barchart(input_val):
     # Tỉ lệ giới tính và thống kê giới tính theo nhóm tuổi của khách hàng
-    fig = plt.figure(figsize=(18, 10))
+    fig = plt.figure(figsize=(12, 8))
     gs = GridSpec(1, 3, figure=fig, width_ratios=[6.3, 2.2, 2.2])
 
     # ax1 plot
@@ -72,11 +96,5 @@ def home_barchart():
     ax3.set_title('Tỉ lệ doanh thu theo giới tính khách hàng', fontweight='bold')
 
     # plt.show()
-    return fig
-
-
-def exp_chart():
-    gender_counts = df.groupby('Gender')['User_ID'].nunique()
-    exp_fig = px.pie(gender_counts)
-    exp_fig.update_layout()
-    return exp_fig
+    html_fig = mpld3.fig_to_html(fig)
+    return html_fig

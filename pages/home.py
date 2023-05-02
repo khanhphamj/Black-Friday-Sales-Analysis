@@ -31,7 +31,7 @@ layout = html.Div([
             dbc.Card(card.card_home_doanhThuTB,
                      className='h-100 text-center shadow border-start border-success border-5')
         ], xs=3),
-    ], className='mt-4 mb-4 align-items-stretch'),
+    ], className='mt-3 mb-3 align-items-stretch'),
     dbc.Row([
         dbc.Col([
             dbc.Card(card.card_home_tiLeGioiTinhtheoTuoi,

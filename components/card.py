@@ -1,12 +1,12 @@
 import dash
 import dash_bootstrap_components as dbc
-from dash import Dash, Input, Output, State, dcc, html
-from codes import loader, barchart
+from dash import Dash, Input, Output, State, dcc, html, callback
+from codes import loader, home_chart_modal
 
 card_home_banner = [
     dbc.CardBody([
-        html.H3('BLACK FRIDAY SALES DASHBOARD', className="m-0")
-    ], className='p-3'),
+        html.H4('BLACK FRIDAY SALES DASHBOARD')
+    ], className='p-2'),
 ]
 
 card_home_tongDoanhThu = [
@@ -45,11 +45,16 @@ card_home_doanhThuTB = [
 ]
 
 card_home_tiLeGioiTinhtheoTuoi = [
-    dbc.CardBody([
-        html.P('#Tỉ lệ giới tính và thống kê giới tính '
-               'theo nhóm tuổi của khách hàng'),
-        html.H3('Chart')
-    ]),
+    dbc.CardBody(html.P("#Tỉ lệ giới tính và thống kê giới tính theo nhóm tuổi của khách hàng",
+                        className="card-text")),
+    html.Div([
+        html.Div([
+            dbc.CardImg(src="https://web888.vn/wp-content/uploads/2021/10/luu-ban-nhap-tu-dong-1634789228253.jpg",
+                        bottom=True,
+                        className="card-image")
+        ]),
+        html.Div([home_chart_modal.home_modal], className='card-middle')
+    ], className='card-container'),
 ]
 
 card_home_productIDMuaNhieuNhat = [
