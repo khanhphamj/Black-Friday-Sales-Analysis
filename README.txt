@@ -5,7 +5,7 @@ Software needs to be installed
 3. Install libs needs (open terminal in pycharm to install):
 
 pip install dash dash-bootstrap-components ipywidgets
-pip install folium plotly jupyter-dash fontawesome
+pip install folium plotly jupyter-dash fontawesome mpld3
 pip install pandas numpy matplotlib seaborn squarify sklearn scikit-learn
 -----------------------------------------------------------
 4. Run project without doing anything

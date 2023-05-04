@@ -1,12 +1,12 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
-
-banner_url = "https://www.freepnglogos.com/uploads/abc-png-logo/play-abc-logo-png-22.png"
+from PIL import Image
 
 sidebar_header = dbc.Row(
     [
-        dbc.Col(html.Img(src=banner_url, width="50%"), style={'textAlign': 'center'}),
+        dbc.Col(html.Img(src=Image.open("imgs/logo.png"), width="50%"),
+                style={'textAlign': 'center'}),
         # dbc.Col(html.H3("ABC Ltd", className="text-center")),
         dbc.Col(
             [
@@ -60,9 +60,8 @@ sidebar = html.Div(
             dbc.Nav(
                 [
                     dbc.NavLink("Tổng quan", href="/", active="exact"),
-                    dbc.NavLink("Khách hàng", href="/khachhang", active="exact"),
-                    dbc.NavLink("Sản phẩm", href="/sanpham", active="exact"),
                     dbc.NavLink("Doanh thu", href="/doanhthu", active="exact"),
+                    dbc.NavLink("Dash Layout Demo", href="/dash-layout", active="exact"),
                 ],
                 vertical=True,
                 pills=True,

@@ -1,7 +1,7 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
-from components import card
+from components import card_home
 
 layout = html.Div([
     dbc.Row([

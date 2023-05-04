@@ -1,7 +1,7 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, State, dcc, html
-from pages import home, customer, product, revenue
+from pages import home, revenue, dash_layout_demo
 from components import leftsidebar
 
 # https://fontawesome.com/v4/ link v4
@@ -20,12 +20,10 @@ app.layout = html.Div([dcc.Location(id="url"), leftsidebar.sidebar, content])
 def render_page_content(pathname):
     if pathname == "/":
         return home.layout
-    elif pathname == "/khachhang":
-        return customer.layout
-    elif pathname == "/sanpham":
-        return product.layout
     elif pathname == "/doanhthu":
         return revenue.layout
+    elif pathname == "/dash-layout":
+        return dash_layout_demo.layout
     # If the user tries to reach a different page, return a 404 message
     return html.Div(
         [
