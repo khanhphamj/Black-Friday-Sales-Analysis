@@ -47,7 +47,7 @@ layout = html.Div([
                     dbc.Card(card_home.card_home_productIDDoanhThuCaoNhat,
                              className='text-center shadow border-start border-success border-5')
                 ], xs=6)
-            ], className='pb-1'),
+            ], className='pb-3'),
             dbc.Card(card_home.card_home_catIDBanChayNhat,
                      className='text-center shadow border-start border-success border-5'),
         ], xs=6)
