@@ -17,7 +17,7 @@ layout = html.Div([
     dbc.Row([
         dbc.Card(dbc.CardBody([
             html.H4('BÁO CÁO CHI TIẾT SẢN PHẨM', id="lb_title")], className='p-1'),
-            className='text-center bg-danger bg-gradient bg-opacity-80 text-white mb-2')
+            className='text-center bg-primary bg-gradient bg-opacity-80 text-white mb-2')
     ]),
     dbc.Row([
         dbc.Col([
@@ -31,24 +31,33 @@ layout = html.Div([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.P('Category 1'),
-                    html.H3(id='lb_cat1', className="text-danger")
+                    html.P(children=[
+                        html.I(className="fa fa-tasks fa-sm"),
+                        html.Strong(' Category 1'),
+                    ]),
+                    html.H3(id='lb_cat1', className="text-info")
                 ], className='h-100 text-center shadow border-start border-warning border-5')
             ]),
         ], xs=3),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.P('Category 2'),
-                    html.H3(id='lb_cat2', className="text-danger")
+                    html.P(children=[
+                        html.I(className="fa fa-tasks fa-sm"),
+                        html.Strong(' Category 2'),
+                    ]),
+                    html.H3(id='lb_cat2', className="text-info")
                 ], className='h-100 text-center shadow border-start border-warning border-5')
             ]),
         ], xs=3),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.P('Category 3'),
-                    html.H3(id='lb_cat3', className="text-danger")
+                    html.P(children=[
+                        html.I(className="fa fa-tasks fa-sm"),
+                        html.Strong(' Category 3'),
+                    ]),
+                    html.H3(id='lb_cat3', className="text-info")
                 ], className='h-100 text-center shadow border-start border-warning border-5')
             ]),
         ], xs=3),
@@ -57,19 +66,27 @@ layout = html.Div([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.P('Doanh thu'),
+                    html.P(children=[
+                        html.I(className="fa fa-money fa-sm"),
+                        html.Strong(' Doanh thu'),
+                    ]),
                     html.H3('', id='lb_doanhthu', className="text-danger")
                 ])
-            ], className='text-center shadow border-start border-success border-5'),
+            ],
+                className='text-center shadow border-start border-top border-end border-bottom border-info border-3'),
             dbc.Row([
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
-                            html.P('Số khách hàng mua sản phẩm'),
+                            html.P(children=[
+                                html.I(className="fa fa-users fa-sm"),
+                                html.Strong(' Số khách hàng mua sản phẩm'),
+                            ]),
                             html.H3('', id='lb_numKH', className="text-danger")
 
                         ])
-                    ], className='h-100 text-center shadow border-start border-success border-5')
+                    ],
+                        className='h-100 text-center shadow border-start border-top border-end border-bottom border-info border-3')
                 ])
             ], className='pt-3')
         ], xs=3),
@@ -81,7 +98,7 @@ layout = html.Div([
                         srcDoc=None,  # here is where we will put the graph we make
                         style={"height": "500px", "width": "100%"}),
                 ])
-            ], className='text-center shadow border-start border-success border-5')
+            ], className='text-center shadow border-start border-secondary border-5')
         ], xs=6),
         dbc.Col([
             dbc.Card([
@@ -91,7 +108,7 @@ layout = html.Div([
                         srcDoc=None,  # here is where we will put the graph we make
                         style={"height": "250px", "width": "100%"}),
                 ])
-            ], className='text-center shadow border-start border-success border-5'),
+            ], className='text-center shadow border-start border-secondary border-5'),
             dbc.Row([
                 dbc.Col([
                     dbc.Card([
@@ -101,7 +118,7 @@ layout = html.Div([
                                 srcDoc=None,  # here is where we will put the graph we make
                                 style={"height": "250px", "width": "100%"}),
                         ])
-                    ], className='text-center shadow border-start border-success border-5')
+                    ], className='text-center shadow border-start border-secondary border-5')
                 ])
             ], className='pt-3')
         ], xs=3),

@@ -31,6 +31,15 @@
   padding: 2rem 1rem;
 }
 
+.nav-pills {
+    --bs-nav-pills-link-active-bg: #992851;
+    color: #bb39ab;
+}
+
+.nav-link {
+    color: #bb39ab;
+}
+
 @media (min-width: 48em) {
   #sidebar {
     position: fixed;

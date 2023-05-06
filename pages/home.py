@@ -6,7 +6,7 @@ from components import card_home
 layout = html.Div([
     dbc.Row([
         dbc.Card(card_home.card_home_banner,
-                 className='text-center bg-danger bg-gradient bg-opacity-80 text-white')
+                 className='text-center bg-primary bg-gradient bg-opacity-70 text-white')
     ]),
     dbc.Row([
         dbc.Col([
