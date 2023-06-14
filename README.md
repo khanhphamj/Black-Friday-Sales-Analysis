@@ -22,6 +22,11 @@ from pandas.api.types import CategoricalDtype
 import numpy as np
 
 import matplotlib
+
+![image](https://github.com/khanhphamj/Black-Friday-Sales-Analysis/assets/120659979/5b588363-fa9d-463d-b1d5-e4377ad8aad3)
+<img width="960" alt="image" src="https://github.com/khanhphamj/Black-Friday-Sales-Analysis/assets/120659979/fb24c9ed-82ef-4dc1-a8df-a01f92cc2196">
+
+
 from matplotlib import pyplot as plt
 
 import ipywidgets as widgets
